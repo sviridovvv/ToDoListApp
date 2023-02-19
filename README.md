@@ -12,4 +12,4 @@
 
 Приложение доступно для версии iOS 16.2 и выше.
 
-<img src="![simulator_screenshot_9498A184-906C-4813-84AF-C59A939B416C](https://user-images.githubusercontent.com/97234309/219908142-d84b99e3-9515-4e1c-8bbd-c3bcfbd52ab4.png)" width="150" height="150">
+<img src="https://user-images.githubusercontent.com/97234309/219908142-d84b99e3-9515-4e1c-8bbd-c3bcfbd52ab4.png" width="150" height="150">
