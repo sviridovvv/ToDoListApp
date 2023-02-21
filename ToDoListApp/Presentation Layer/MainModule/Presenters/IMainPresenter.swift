@@ -7,8 +7,9 @@
 
 import Foundation
 
-protocol IPresenter: AnyObject {
-	init(view: ITableViewController)
+/// Протокол для главного презентера
+protocol IMainPresenter: AnyObject {
+	init(view: IMainTableViewController, taskSectionsAdapter: ISectionForTaskManagerAdapter)
 	func prepareViewData()
 	func cellTapped(indexPath: IndexPath)
 }

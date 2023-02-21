@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E799C32F299849ED00663F55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799C32E299849ED00663F55 /* AppDelegate.swift */; };
-		E799C333299849ED00663F55 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799C332299849ED00663F55 /* TableViewController.swift */; };
+		E799C333299849ED00663F55 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799C332299849ED00663F55 /* MainTableViewController.swift */; };
 		E799C336299849ED00663F55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E799C334299849ED00663F55 /* Main.storyboard */; };
 		E799C338299849ED00663F55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E799C337299849ED00663F55 /* Assets.xcassets */; };
 		E799C33B299849ED00663F55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E799C339299849ED00663F55 /* LaunchScreen.storyboard */; };
@@ -22,18 +22,17 @@
 		E7D9B5EE299D529100034062 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D9B5ED299D529100034062 /* SceneDelegate.swift */; };
 		E7D9B5F6299DA0AA00034062 /* ISectionForTaskManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D9B5F5299DA0AA00034062 /* ISectionForTaskManagerAdapter.swift */; };
 		E7D9B5F8299DA0B300034062 /* SectionForTaskManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D9B5F7299DA0B300034062 /* SectionForTaskManagerAdapter.swift */; };
-		E7D9B5FB299DA15300034062 /* ViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D9B5FA299DA15300034062 /* ViewData.swift */; };
 		E7F384FA29A168BC0042E5DE /* OrderedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F384F929A168BC0042E5DE /* OrderedTaskManager.swift */; };
-		E7F384FF29A1928A0042E5DE /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F384FE29A1928A0042E5DE /* Presenter.swift */; };
-		E7F3850129A193440042E5DE /* ITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3850029A193440042E5DE /* ITableViewController.swift */; };
-		E7F3850729A196E60042E5DE /* IPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3850629A196E60042E5DE /* IPresenter.swift */; };
-		E7F3850A29A1A48B0042E5DE /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3850929A1A48B0042E5DE /* Section.swift */; };
+		E7F384FF29A1928A0042E5DE /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F384FE29A1928A0042E5DE /* MainPresenter.swift */; };
+		E7F3850129A193440042E5DE /* IMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3850029A193440042E5DE /* IMainTableViewController.swift */; };
+		E7F3850729A196E60042E5DE /* IMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3850629A196E60042E5DE /* IMainPresenter.swift */; };
+		E7F3850A29A1A48B0042E5DE /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3850929A1A48B0042E5DE /* MainModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E799C32B299849ED00663F55 /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E799C32E299849ED00663F55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E799C332299849ED00663F55 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		E799C332299849ED00663F55 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		E799C335299849ED00663F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E799C337299849ED00663F55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E799C33A299849ED00663F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,12 +47,11 @@
 		E7D9B5ED299D529100034062 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7D9B5F5299DA0AA00034062 /* ISectionForTaskManagerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISectionForTaskManagerAdapter.swift; sourceTree = "<group>"; };
 		E7D9B5F7299DA0B300034062 /* SectionForTaskManagerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionForTaskManagerAdapter.swift; sourceTree = "<group>"; };
-		E7D9B5FA299DA15300034062 /* ViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewData.swift; sourceTree = "<group>"; };
 		E7F384F929A168BC0042E5DE /* OrderedTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedTaskManager.swift; sourceTree = "<group>"; };
-		E7F384FE29A1928A0042E5DE /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		E7F3850029A193440042E5DE /* ITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITableViewController.swift; sourceTree = "<group>"; };
-		E7F3850629A196E60042E5DE /* IPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPresenter.swift; sourceTree = "<group>"; };
-		E7F3850929A1A48B0042E5DE /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		E7F384FE29A1928A0042E5DE /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		E7F3850029A193440042E5DE /* IMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMainTableViewController.swift; sourceTree = "<group>"; };
+		E7F3850629A196E60042E5DE /* IMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMainPresenter.swift; sourceTree = "<group>"; };
+		E7F3850929A1A48B0042E5DE /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				E799C34A29984C0600663F55 /* Task.swift */,
-				E7D9B5FA299DA15300034062 /* ViewData.swift */,
-				E7F3850929A1A48B0042E5DE /* Section.swift */,
+				E7F3850929A1A48B0042E5DE /* MainModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,8 +104,8 @@
 		E799C34329984AD100663F55 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E7F3850029A193440042E5DE /* ITableViewController.swift */,
-				E799C332299849ED00663F55 /* TableViewController.swift */,
+				E7F3850029A193440042E5DE /* IMainTableViewController.swift */,
+				E799C332299849ED00663F55 /* MainTableViewController.swift */,
 				E799C34E29986C2300663F55 /* TaskCell.swift */,
 				E799C34529984B2200663F55 /* Storyboards */,
 			);
@@ -184,8 +181,8 @@
 		E7F384FD29A192700042E5DE /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				E7F3850629A196E60042E5DE /* IPresenter.swift */,
-				E7F384FE29A1928A0042E5DE /* Presenter.swift */,
+				E7F3850629A196E60042E5DE /* IMainPresenter.swift */,
+				E7F384FE29A1928A0042E5DE /* MainPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -276,15 +273,14 @@
 				E7D9B5F6299DA0AA00034062 /* ISectionForTaskManagerAdapter.swift in Sources */,
 				E799C34F29986C2300663F55 /* TaskCell.swift in Sources */,
 				E7D9B5F8299DA0B300034062 /* SectionForTaskManagerAdapter.swift in Sources */,
-				E799C333299849ED00663F55 /* TableViewController.swift in Sources */,
+				E799C333299849ED00663F55 /* MainTableViewController.swift in Sources */,
 				E799C32F299849ED00663F55 /* AppDelegate.swift in Sources */,
-				E7F3850A29A1A48B0042E5DE /* Section.swift in Sources */,
+				E7F3850A29A1A48B0042E5DE /* MainModel.swift in Sources */,
 				E7B1570C299877C100E3F2DF /* UIImage + Extensions.swift in Sources */,
-				E7D9B5FB299DA15300034062 /* ViewData.swift in Sources */,
-				E7F384FF29A1928A0042E5DE /* Presenter.swift in Sources */,
-				E7F3850129A193440042E5DE /* ITableViewController.swift in Sources */,
+				E7F384FF29A1928A0042E5DE /* MainPresenter.swift in Sources */,
+				E7F3850129A193440042E5DE /* IMainTableViewController.swift in Sources */,
 				E7D9B5EE299D529100034062 /* SceneDelegate.swift in Sources */,
-				E7F3850729A196E60042E5DE /* IPresenter.swift in Sources */,
+				E7F3850729A196E60042E5DE /* IMainPresenter.swift in Sources */,
 				E799C34D2998524A00663F55 /* ITaskManager.swift in Sources */,
 				E799C34B29984C0600663F55 /* Task.swift in Sources */,
 				E799C34929984BF800663F55 /* TaskManager.swift in Sources */,

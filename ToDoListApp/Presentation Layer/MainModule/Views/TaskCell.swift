@@ -14,21 +14,13 @@ final class TaskCell: UITableViewCell {
 	@IBOutlet var completionDate: UILabel!
 	@IBOutlet var importantMark: ImportantMark!
 	
-	func configure(with title: String?, isCompleted: Bool, dateCompletion: Date? = nil, priority: Priority? = nil) {
-		taskLabel.text = title
+	func configure(with name: String, isCompleted: Bool, dateCompletion: String? = nil, isOverdue: Bool? = false, priority: String? = nil) {
+		taskLabel.text = name
 		completionDate.text = nil
 		checkBox.isChecked = isCompleted
 		importantMark.isImportant = priority != nil
 		self.selectionStyle = .none
-		
-		if let dateCompletion = dateCompletion {
-			if dateCompletion < Date() {
-				self.backgroundColor = .systemPink
-			}
-			
-			let dateFormatter = DateFormatter()
-			dateFormatter.dateFormat = "dd.MM.yyyy"
-			completionDate.text = dateFormatter.string(from: dateCompletion)
-		}
+		completionDate.text = dateCompletion
+		self.backgroundColor = isOverdue == true ? .systemPink : .white
 	}
 }

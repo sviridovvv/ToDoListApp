@@ -7,6 +7,7 @@
 
 import Foundation
 
-protocol ITableViewController: AnyObject {
-	func render(viewData: ViewData)
+/// Протокол для таблицы
+protocol IMainTableViewController: AnyObject {
+	func render(viewData: MainModel.ViewData)
 }

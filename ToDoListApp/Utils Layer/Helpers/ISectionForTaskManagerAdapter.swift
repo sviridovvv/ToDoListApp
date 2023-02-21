@@ -7,8 +7,26 @@
 
 import Foundation
 
+enum Section: CaseIterable {
+	case completed
+	case uncompleted
+	
+	var title: String {
+		switch self {
+		case .completed:
+			return "Completed"
+		case .uncompleted:
+			return "Uncompleted"
+		}
+	}
+}
+
 /// Протокол для адаптера менеджера задач
 protocol ISectionForTaskManagerAdapter: AnyObject {
-	/// Возвращает массив секций с необходимыми данными для построения секций и ячеек
-	func getSectionsData() -> [Section]
+	/// Возвращает массив с секциями
+	func getSections() -> [Section]
+	/// Получить задачи для определнной секции
+	func getTasksForSection(section: Section) -> [Task]
+	/// Получить секцию по индексу
+	func getSection(forIndex index: Int) -> Section
 }

@@ -14,10 +14,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		guard let scene = (scene as? UIWindowScene) else { return }
+		let window = UIWindow(windowScene: scene)
 		
-		if let rootVC = scene.windows.first?.rootViewController as? TableViewController {
-			rootVC.presenter = Presenter(view: rootVC)
-		}
+		window.rootViewController = assemly()
+		window.makeKeyAndVisible()
+		
+		self.window = window
+		
 		// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
 		// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
 		// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
@@ -51,6 +54,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// to restore the scene back to its current state.
 	}
 	
-	
+	private func assemly() -> UIViewController {
+		let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+		
+		guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainStroryboard") as? MainTableViewController else {
+			fatalError("Нету на Main.storyboard MainTableViewController")
+		}
+		
+		let taskManager = OrderedTaskManager(taskManager: TaskManager())
+		let repository = TaskRepository()
+		taskManager.addTasks(tasks: repository.getTasks())
+		let taskSectionsAdapter = SectionForTaskManagerAdapter(taskManager: taskManager)
+		let presenter = MainPresenter(view: viewController, taskSectionsAdapter: taskSectionsAdapter)
+		
+		viewController.presenter = presenter
+		
+		return viewController
+	}
 }
 
