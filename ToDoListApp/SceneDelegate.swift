@@ -63,11 +63,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		
 		let taskManager = OrderedTaskManager(taskManager: TaskManager())
 		let repository = TaskRepository()
-		taskManager.addTasks(tasks: repository.getTasks())
 		let taskSectionsAdapter = SectionForTaskManagerAdapter(taskManager: taskManager)
-		let presenter = MainPresenter(view: viewController, taskSectionsAdapter: taskSectionsAdapter)
+		let presenter = MainPresenter(view: viewController)
+		let taskFacade = TaskFacade(repository: repository, taskManager: taskManager)
 		
-		viewController.presenter = presenter
+		viewController.interactor = MainInteractor(
+			presenter: presenter,
+			taskSectionsAdapter: taskSectionsAdapter,
+			taskFacade: taskFacade
+		)
 		
 		return viewController
 	}
