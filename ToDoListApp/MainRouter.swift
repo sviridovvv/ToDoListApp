@@ -17,7 +17,9 @@ class MainRouter: IMainRouter {
 	weak var viewController: LoginViewController?
 	
 	func route(view: UIViewController) {
-		view.present(assembly(), animated: true)
+		let nextView = assembly()
+		nextView.title = Constants.appName
+		view.navigationController?.pushViewController(nextView, animated: true)
 	}
 	
 	private func assembly() -> UIViewController {

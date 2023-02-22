@@ -68,7 +68,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		viewController.interactor = interactor
 		viewController.router = router
 		
-		return viewController
+		let navigationController = UINavigationController(rootViewController: viewController)
+		let mask = UIImage()
+		navigationController.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		navigationController.navigationBar.backIndicatorImage = mask
+		navigationController.navigationBar.backIndicatorTransitionMaskImage = mask
+		navigationController.navigationBar.topItem?.backBarButtonItem?.isEnabled = false
+		return navigationController
 	}
 }
 
