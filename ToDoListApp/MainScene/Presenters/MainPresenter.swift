@@ -9,25 +9,25 @@ import Foundation
 
 /// Протокол для главного презентера
 protocol IMainPresenter: AnyObject {
-	init(view: IMainTableViewController)
+	init(view: ITaskManagerTableViewController)
 	/// Получаем данные из интерактора
-	func getPresentData(with presentData: MainModel.PresentData)
+	func getPresentData(with presentData: MainModel.Response)
 }
 
 /// Реализация главного презентера
 final class MainPresenter: IMainPresenter {
-	private var view: IMainTableViewController!
+	private var view: ITaskManagerTableViewController!
 	
-	required init(view: IMainTableViewController) {
+	required init(view: ITaskManagerTableViewController) {
 		self.view = view
 	}
 	
 	/// Получаем данные из интерактора
-	public func getPresentData(with presentData: MainModel.PresentData) {
+	public func getPresentData(with presentData: MainModel.Response) {
 		view.render(viewData: mapViewData(with: presentData))
 	}
 	
-	private func mapViewData(with presentData: MainModel.PresentData) -> MainModel.ViewData {
+	private func mapViewData(with presentData: MainModel.Response) -> MainModel.ViewData {
 		var sections = [MainModel.ViewData.Section]()
 		for section in presentData.tasksBySections {
 			let sectionData = MainModel.ViewData.Section(

@@ -57,21 +57,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	private func assemly() -> UIViewController {
 		let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 		
-		guard let viewController = storyboard.instantiateViewController(withIdentifier: "MainStroryboard") as? MainTableViewController else {
-			fatalError("Нету на Main.storyboard MainTableViewController")
+		guard let viewController = storyboard.instantiateViewController(withIdentifier: "LoginStoryboard") as? LoginViewController else {
+			fatalError("Нету на Main.storyboard LoginViewController")
 		}
+		let worker = LoginWorker()
+		let router = MainRouter()
+		let presenter = LoginPresenter(viewController: viewController)
+		let interactor = LoginInteractor(worker: worker, presenter: presenter)
 		
-		let taskManager = OrderedTaskManager(taskManager: TaskManager())
-		let repository = TaskRepository()
-		let taskSectionsAdapter = SectionForTaskManagerAdapter(taskManager: taskManager)
-		let presenter = MainPresenter(view: viewController)
-		let taskFacade = TaskFacade(repository: repository, taskManager: taskManager)
-		
-		viewController.interactor = MainInteractor(
-			presenter: presenter,
-			taskSectionsAdapter: taskSectionsAdapter,
-			taskFacade: taskFacade
-		)
+		viewController.interactor = interactor
+		viewController.router = router
 		
 		return viewController
 	}

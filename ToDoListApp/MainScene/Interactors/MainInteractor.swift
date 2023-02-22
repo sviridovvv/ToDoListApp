@@ -43,10 +43,10 @@ final class MainInteractor: IMainInteractor {
 		presenter.getPresentData(with: mapPresentData())
 	}
 	
-	private func mapPresentData() -> MainModel.PresentData {
-		var sections = [MainModel.PresentData.Section]()
+	private func mapPresentData() -> MainModel.Response {
+		var sections = [MainModel.Response.Section]()
 		for section in taskSectionsAdapter.getSections() {
-			let sectionData = MainModel.PresentData.Section(
+			let sectionData = MainModel.Response.Section(
 				title: section.title,
 				tasks: taskSectionsAdapter.getTasksForSection(section: section)
 			)
@@ -54,6 +54,6 @@ final class MainInteractor: IMainInteractor {
 			sections.append(sectionData)
 		}
 		
-		return MainModel.PresentData(tasksBySections: sections)
+		return MainModel.Response(tasksBySections: sections)
 	}
 }

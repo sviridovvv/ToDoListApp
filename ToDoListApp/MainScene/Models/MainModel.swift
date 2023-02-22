@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Подготовленная модель для вью
+/// Модели для вью и ответа от итерактора
 enum MainModel {
 	struct ViewData {
 		struct RegularTask {
@@ -36,7 +36,7 @@ enum MainModel {
 		let tasksBySections: [Section]
 	}
 	
-	struct PresentData {
+	struct Response {
 		struct Section {
 			let title: String
 			let tasks: [Task]

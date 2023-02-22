@@ -8,12 +8,12 @@
 import UIKit
 
 /// Протокол для таблицы
-protocol IMainTableViewController: AnyObject {
+protocol ITaskManagerTableViewController: AnyObject {
 	func render(viewData: MainModel.ViewData)
 }
 
 /// Таблица для отображения задач
-class MainTableViewController: UITableViewController, IMainTableViewController {
+class TaskManagerTableViewController: UITableViewController, ITaskManagerTableViewController {
 	private var viewData: MainModel.ViewData?
 	var interactor: IMainInteractor!
 	
