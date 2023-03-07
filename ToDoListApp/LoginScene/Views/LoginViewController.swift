@@ -36,29 +36,24 @@ final class LoginViewController: UIViewController {
 extension LoginViewController: ILoginViewController {
 	/// Отображаем результат авторизации
 	public func render(viewModel: LoginModels.ViewModel) {
-				
-		let alert: UIAlertController
-		let action: UIAlertAction
-		
 		if viewModel.success {
-			alert = UIAlertController(
-				title: "Success",
-				message: viewModel.userName,
-				preferredStyle: UIAlertController.Style.alert
-			)
-
-			action = UIAlertAction(title: "Ok", style: .default) {_ in
+			showAlert(title: "Success", message: viewModel.userName) { [weak self] _ in
+				guard let self = self else { return }
 				self.router.route(view: self)
 			}
 		} else {
-			alert = UIAlertController(
-				title: "Error",
-				message: "",
-				preferredStyle: UIAlertController.Style.alert
-			)
-
-			action = UIAlertAction(title: "Ok", style: .default)
+			showAlert(title: "Error", message: "")
 		}
+	}
+	
+	private func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
+		let alert = UIAlertController(
+			title: title,
+			message: message,
+			preferredStyle: UIAlertController.Style.alert
+		)
+		
+		let action = UIAlertAction(title: "Ok", style: .default, handler: completion)
 		
 		alert.addAction(action)
 		present(alert, animated: true, completion: nil)

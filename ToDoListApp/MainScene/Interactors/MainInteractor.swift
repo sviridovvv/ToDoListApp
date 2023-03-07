@@ -17,21 +17,21 @@ protocol IMainInteractor: AnyObject {
 final class MainInteractor: IMainInteractor {
 	private var presenter: IMainPresenter!
 	private var taskSectionsAdapter: ISectionForTaskManagerAdapter!
-	private var taskFacade: ITaskFacade
+	private var taskWorker: ITaskWorker
 	
 	required init(
 		presenter: IMainPresenter,
 		taskSectionsAdapter: ISectionForTaskManagerAdapter,
-		taskFacade: ITaskFacade
+		taskWorker: ITaskWorker
 	) {
 		self.presenter = presenter
 		self.taskSectionsAdapter = taskSectionsAdapter
-		self.taskFacade = taskFacade
+		self.taskWorker = taskWorker
 	}
 	
 	/// После того как загрузилась вью, отправляем данные презентеру
 	public func viewIsReady() {
-		taskFacade.setupTaskManager()
+		taskWorker.setupTaskManager()
 		presenter.getPresentData(with: mapPresentData())
 	}
 	

@@ -13,9 +13,9 @@ class Task: Equatable {
 		return lhs.id == lhs.id && lhs.completed == rhs.completed && lhs.title == rhs.title
 	}
 	
-	var id: Int = 0
-	var title: String? = nil
-	var completed: Bool = false
+	var id: Int
+	var title: String
+	var completed: Bool
 	
 	init(id: Int, title: String, completed: Bool) {
 		self.id = id

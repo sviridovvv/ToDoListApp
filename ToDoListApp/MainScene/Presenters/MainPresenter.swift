@@ -51,7 +51,7 @@ final class MainPresenter: IMainPresenter {
 			dateFormatter.dateFormat = "dd.MM.yyyy"
 			let date = dateFormatter.string(from: task.completionDate ?? Date())
 			let result = MainModel.ViewData.ImportantTask(
-				name: task.title ?? "",
+				name: task.title,
 				isCompleted: task.completed,
 				isOverdue: task.completionDate ?? Date() < Date(),
 				dateCompletion: "Deadline: \(date)",
@@ -60,7 +60,7 @@ final class MainPresenter: IMainPresenter {
 			
 			return .importantTask(result)
 		} else {
-			return .regularTask(MainModel.ViewData.RegularTask(name: task.title ?? "", isCompleted: task.completed))
+			return .regularTask(MainModel.ViewData.RegularTask(name: task.title, isCompleted: task.completed))
 		}
 	}
 }

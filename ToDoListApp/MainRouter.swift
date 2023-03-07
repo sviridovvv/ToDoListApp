@@ -33,12 +33,12 @@ class MainRouter: IMainRouter {
 		let repository = TaskRepository()
 		let taskSectionsAdapter = SectionForTaskManagerAdapter(taskManager: taskManager)
 		let presenter = MainPresenter(view: viewController)
-		let taskFacade = TaskFacade(repository: repository, taskManager: taskManager)
+		let taskWorker = TaskWorker(repository: repository, taskManager: taskManager)
 		viewController.modalPresentationStyle = .fullScreen
 		viewController.interactor = MainInteractor(
 			presenter: presenter,
 			taskSectionsAdapter: taskSectionsAdapter,
-			taskFacade: taskFacade
+			taskWorker: taskWorker
 		)
 		
 		return viewController

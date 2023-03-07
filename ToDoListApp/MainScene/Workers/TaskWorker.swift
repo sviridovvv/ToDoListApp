@@ -7,13 +7,13 @@
 
 import Foundation
 
-/// Протокол для фасада
-protocol ITaskFacade: AnyObject {
+/// Протокол для воркера задач
+protocol ITaskWorker: AnyObject {
 	func setupTaskManager()
 }
 
-/// Реализация фасада
-final class TaskFacade: ITaskFacade {
+/// Реализация воркера задач
+final class TaskWorker: ITaskWorker {
 	
 	private var repository: ITaskRepository!
 	private var taskManager: ITaskManager!

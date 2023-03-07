@@ -14,14 +14,30 @@ final class TaskCell: UITableViewCell {
 	@IBOutlet var completionDate: UILabel!
 	@IBOutlet var importantMark: ImportantMark!
 	
-	/// Конфигурируем ячейки
-	public func configure(with name: String, isCompleted: Bool, dateCompletion: String? = nil, isOverdue: Bool? = false, priority: String? = nil) {
+	/// Конфигурируем ячейки c обычной задачей
+	public func configureRegularTask(
+		with name: String,
+		isCompleted: Bool
+	) {
 		taskLabel.text = name
-		completionDate.text = nil
 		checkBox.isChecked = isCompleted
-		importantMark.isImportant = priority != nil
-		self.selectionStyle = .none
+		completionDate.text = nil
+		importantMark.isImportant = false
+	}
+	
+	/// Конфигурируем ячейки с важной задачей
+	public func configureImportantTask(
+		with name: String,
+		isCompleted: Bool,
+		dateCompletion: String,
+		isOverdue: Bool,
+		priority: String
+	) {
+		taskLabel.text = name
+		checkBox.isChecked = isCompleted
 		completionDate.text = dateCompletion
+		importantMark.isImportant = true
+		self.selectionStyle = .none
 		self.backgroundColor = isOverdue == true ? .systemPink : .white
 	}
 }

@@ -7,13 +7,6 @@
 
 import Foundation
 
-/// Протокол для стора логина и пароля
-protocol LoginDataStore: AnyObject
-{
-	var email: String? { get set }
-	var password: String? { get set }
-}
-
 /// Протокол для итерактора логина
 protocol ILoginInteractor: AnyObject {
 	func login(request: LoginModels.Request)

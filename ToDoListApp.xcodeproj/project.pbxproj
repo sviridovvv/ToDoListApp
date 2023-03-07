@@ -13,10 +13,10 @@
 		E799C338299849ED00663F55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E799C337299849ED00663F55 /* Assets.xcassets */; };
 		E799C33B299849ED00663F55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E799C339299849ED00663F55 /* LaunchScreen.storyboard */; };
 		E799C34929984BF800663F55 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799C34829984BF800663F55 /* TaskManager.swift */; };
-		E799C34B29984C0600663F55 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799C34A29984C0600663F55 /* Section.swift */; };
+		E799C34B29984C0600663F55 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799C34A29984C0600663F55 /* Task.swift */; };
 		E799C34F29986C2300663F55 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799C34E29986C2300663F55 /* TaskCell.swift */; };
 		E79AA90629A678E10050F324 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AA90529A678E10050F324 /* MainInteractor.swift */; };
-		E79AA90829A697560050F324 /* TaskFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AA90729A697560050F324 /* TaskFacade.swift */; };
+		E79AA90829A697560050F324 /* TaskWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AA90729A697560050F324 /* TaskWorker.swift */; };
 		E7B1570C299877C100E3F2DF /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B1570B299877C100E3F2DF /* UIImage + Extensions.swift */; };
 		E7D9B5EA299D439500034062 /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D9B5E9299D439500034062 /* TaskRepository.swift */; };
 		E7D9B5EE299D529100034062 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D9B5ED299D529100034062 /* SceneDelegate.swift */; };
@@ -43,10 +43,10 @@
 		E799C33A299849ED00663F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E799C33C299849ED00663F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E799C34829984BF800663F55 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
-		E799C34A29984C0600663F55 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		E799C34A29984C0600663F55 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E799C34E29986C2300663F55 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		E79AA90529A678E10050F324 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
-		E79AA90729A697560050F324 /* TaskFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFacade.swift; sourceTree = "<group>"; };
+		E79AA90729A697560050F324 /* TaskWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWorker.swift; sourceTree = "<group>"; };
 		E7B1570B299877C100E3F2DF /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		E7D9B5E9299D439500034062 /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
 		E7D9B5ED299D529100034062 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +75,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E72DB7C929B7C39E008A9160 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E7D9B5E9299D439500034062 /* TaskRepository.swift */,
+				E7D9B5F7299DA0B300034062 /* SectionForTaskManagerAdapter.swift */,
+				E799C34829984BF800663F55 /* TaskManager.swift */,
+				E7F384F929A168BC0042E5DE /* OrderedTaskManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		E799C322299849ED00663F55 = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				E7F3850929A1A48B0042E5DE /* MainModel.swift */,
-				E799C34A29984C0600663F55 /* Section.swift */,
+				E799C34A29984C0600663F55 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,11 +146,7 @@
 		E799C34629984BB500663F55 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
-				E7D9B5E9299D439500034062 /* TaskRepository.swift */,
-				E7D9B5F7299DA0B300034062 /* SectionForTaskManagerAdapter.swift */,
-				E799C34829984BF800663F55 /* TaskManager.swift */,
-				E7F384F929A168BC0042E5DE /* OrderedTaskManager.swift */,
-				E79AA90729A697560050F324 /* TaskFacade.swift */,
+				E79AA90729A697560050F324 /* TaskWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -161,6 +168,7 @@
 				E7F384FD29A192700042E5DE /* Presenters */,
 				E799C34329984AD100663F55 /* Views */,
 				E799C34629984BB500663F55 /* Workers */,
+				E72DB7C929B7C39E008A9160 /* Managers */,
 				E799C34229984AC700663F55 /* Models */,
 			);
 			path = MainScene;
@@ -332,9 +340,9 @@
 				E7F384FF29A1928A0042E5DE /* MainPresenter.swift in Sources */,
 				E7D9B5EE299D529100034062 /* SceneDelegate.swift in Sources */,
 				E7E5BF1C29A6A04A00B249E8 /* LoginModels.swift in Sources */,
-				E79AA90829A697560050F324 /* TaskFacade.swift in Sources */,
+				E79AA90829A697560050F324 /* TaskWorker.swift in Sources */,
 				E7E5BF1829A6A01000B249E8 /* LoginViewController.swift in Sources */,
-				E799C34B29984C0600663F55 /* Section.swift in Sources */,
+				E799C34B29984C0600663F55 /* Task.swift in Sources */,
 				E799C34929984BF800663F55 /* TaskManager.swift in Sources */,
 				E7D9B5EA299D439500034062 /* TaskRepository.swift in Sources */,
 			);

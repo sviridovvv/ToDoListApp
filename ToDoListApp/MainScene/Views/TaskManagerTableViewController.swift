@@ -47,14 +47,15 @@ class TaskManagerTableViewController: UITableViewController, ITaskManagerTableVi
 		
 		switch taskData {
 		case .importantTask(let task):
-			cell.configure(
+			cell.configureImportantTask(
 				with: task.name,
 				isCompleted: task.isCompleted,
 				dateCompletion: task.dateCompletion,
+				isOverdue: task.isOverdue,
 				priority: task.priority
 			)
 		case .regularTask(let task):
-			cell.configure(
+			cell.configureRegularTask(
 				with: task.name,
 				isCompleted: task.isCompleted == true
 			)
