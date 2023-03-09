@@ -27,10 +27,10 @@ final class MainPresenter: IMainPresenter {
 		view.render(viewData: mapViewData(with: presentData))
 	}
 	
-	private func mapViewData(with presentData: MainModel.Response) -> MainModel.ViewData {
-		var sections = [MainModel.ViewData.Section]()
+	private func mapViewData(with presentData: MainModel.Response) -> MainModel.ViewModel {
+		var sections = [MainModel.ViewModel.Section]()
 		for section in presentData.tasksBySections {
-			let sectionData = MainModel.ViewData.Section(
+			let sectionData = MainModel.ViewModel.Section(
 				title: section.title,
 				tasks: mapTasksData(tasks: section.tasks)
 			)
@@ -38,19 +38,19 @@ final class MainPresenter: IMainPresenter {
 			sections.append(sectionData)
 		}
 		
-		return MainModel.ViewData(tasksBySections: sections)
+		return MainModel.ViewModel(tasksBySections: sections)
 	}
 	
-	private func mapTasksData(tasks: [Task]) -> [MainModel.ViewData.Task] {
+	private func mapTasksData(tasks: [Task]) -> [MainModel.ViewModel.Task] {
 		tasks.map { mapTaskData(task: $0) }
 	}
 	
-	private func mapTaskData(task: Task) -> MainModel.ViewData.Task {
+	private func mapTaskData(task: Task) -> MainModel.ViewModel.Task {
 		if let task = task as? ImportantTask {
 			let dateFormatter = DateFormatter()
 			dateFormatter.dateFormat = "dd.MM.yyyy"
 			let date = dateFormatter.string(from: task.completionDate ?? Date())
-			let result = MainModel.ViewData.ImportantTask(
+			let result = MainModel.ViewModel.ImportantTask(
 				name: task.title,
 				isCompleted: task.completed,
 				isOverdue: task.completionDate ?? Date() < Date(),
@@ -60,7 +60,7 @@ final class MainPresenter: IMainPresenter {
 			
 			return .importantTask(result)
 		} else {
-			return .regularTask(MainModel.ViewData.RegularTask(name: task.title, isCompleted: task.completed))
+			return .regularTask(MainModel.ViewModel.RegularTask(name: task.title, isCompleted: task.completed))
 		}
 	}
 }

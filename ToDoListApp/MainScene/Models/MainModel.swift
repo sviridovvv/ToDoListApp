@@ -9,7 +9,7 @@ import Foundation
 
 /// Модели для вью и ответа от итерактора
 enum MainModel {
-	struct ViewData {
+	struct ViewModel {
 		struct RegularTask {
 			let name: String
 			let isCompleted: Bool

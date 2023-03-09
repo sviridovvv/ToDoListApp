@@ -9,15 +9,15 @@ import UIKit
 
 /// Протокол для таблицы
 protocol ITaskManagerTableViewController: AnyObject {
-	func render(viewData: MainModel.ViewData)
+	func render(viewData: MainModel.ViewModel)
 }
 
 /// Таблица для отображения задач
 class TaskManagerTableViewController: UITableViewController, ITaskManagerTableViewController {
-	private var viewData: MainModel.ViewData?
+	private var viewData: MainModel.ViewModel?
 	var interactor: IMainInteractor!
 	
-	func render(viewData: MainModel.ViewData) {
+	func render(viewData: MainModel.ViewModel) {
 		self.viewData = viewData
 		tableView.reloadData()
 	}
