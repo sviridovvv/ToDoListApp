@@ -14,11 +14,11 @@ protocol ITaskManagerTableViewController: AnyObject {
 
 /// Таблица для отображения задач
 class TaskManagerTableViewController: UITableViewController, ITaskManagerTableViewController {
-	private var viewData: MainModel.ViewModel?
+	private var viewModel: MainModel.ViewModel?
 	var interactor: IMainInteractor!
 	
 	func render(viewData: MainModel.ViewModel) {
-		self.viewData = viewData
+		self.viewModel = viewData
 		tableView.reloadData()
 	}
 	
@@ -28,21 +28,21 @@ class TaskManagerTableViewController: UITableViewController, ITaskManagerTableVi
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		viewData?.tasksBySections[section].title
+		viewModel?.tasksBySections[section].title
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
-		viewData?.tasksBySections.count ?? 0
+		viewModel?.tasksBySections.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		viewData?.tasksBySections[section].tasks.count ?? 0
+		viewModel?.tasksBySections[section].tasks.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard
 			let cell = self.tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell,
-			let taskData = viewData?.tasksBySections[indexPath.section].tasks[indexPath.row]
+			let taskData = viewModel?.tasksBySections[indexPath.section].tasks[indexPath.row]
 		else { return UITableViewCell() }
 		
 		switch taskData {
